@@ -1,4 +1,4 @@
-import { ChakraProvider } from "@chakra-ui/react"
+import { Box, ChakraProvider } from "@chakra-ui/react"
 import { theme } from "./chakra"
 
 type Props = {
@@ -6,5 +6,9 @@ type Props = {
 }
 
 export const ProviderTheme = ({children}: Props) => {
-    return <ChakraProvider theme={theme}>{children}</ChakraProvider>
+    return <ChakraProvider theme={theme}>
+        <Box bg="copybase.general.white" h="100vh">
+            {children}
+        </Box>
+    </ChakraProvider>
 }
