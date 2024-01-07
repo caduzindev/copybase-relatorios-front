@@ -1,5 +1,6 @@
 import { Box, Grid, GridItem } from "@chakra-ui/react"
 import { UploadFile } from "../components/compound/UploadFile"
+import { ReportQueue } from "../components/compound/ReportQueue"
 
 export const SendReport = () => {
     return (
@@ -9,7 +10,7 @@ export const SendReport = () => {
                     <UploadFile/>
                 </GridItem>
                 <GridItem>
-                    opapaopsd
+                    <ReportQueue/>
                 </GridItem>
             </Grid>
         </Box>

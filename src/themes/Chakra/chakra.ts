@@ -4,10 +4,20 @@ const colors = {
     general: {
         purple: '#44377f',
         white: '#ffffff',
-        whiteGray: '#eaeafe'
+        whiteGray: '#eaeafe',
+        whiteGrayClean: '#f7f7ff',
+        black: '#0f0b25'
     },
     button: {
-        500: '#338c5c'
+        500: '#338c5c',
+    },
+    progress: {
+        500: '#44377f'
+    },
+    badge: {
+        100: '#44377f',
+        200: '#44377f',
+        800: '#44377f',
     }
 }
 
