@@ -9,7 +9,7 @@ export const Dash = ({ children }: Props) => {
             <Box width="100%" p={2} bg="copybase.general.purple">
                 <Image src="copybase_logo.svg" alt="logo"/>
             </Box>
-            <Box width="100%" height="100vh">{children}</Box>        
+            <Box width="100%">{children}</Box>        
         </>
     )
 }
