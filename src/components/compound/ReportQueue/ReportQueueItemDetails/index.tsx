@@ -1,1 +1,5 @@
-export const ReportQueueItemDetails = () => {}
+export const ReportQueueItemDetails = () => {
+    return (
+        <h1>Ola mundo</h1>
+    )
+}
