@@ -13,6 +13,7 @@ export const ReportQueueItem = ()=>{
                 direction={{base: 'column',sm: "row"}} 
                 overflow='hidden'
                 alignItems="center"
+                height="100%"
                 p={4}
                 gap={2}
             >

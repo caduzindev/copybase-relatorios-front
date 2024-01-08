@@ -1,6 +1,6 @@
 import { extendTheme } from "@chakra-ui/react"
 
-const colors = {
+export const colors = {
     general: {
         purple: '#44377f',
         white: '#ffffff',
