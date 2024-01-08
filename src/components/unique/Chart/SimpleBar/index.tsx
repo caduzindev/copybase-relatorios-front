@@ -12,6 +12,7 @@ export const SimpleBarChart = ({data,labels}: Props) => {
     return <Bar 
         options={{
             responsive: true,
+            maintainAspectRatio: false,
             plugins: {
                 title: {
                     display: true,
