@@ -32,5 +32,5 @@ export enum StatusReport {
 }
 
 export interface SearchParamsReport extends SearchParams {
-    status: StatusReport;
+    status?: StatusReport;
 }

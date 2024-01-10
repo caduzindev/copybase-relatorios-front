@@ -20,7 +20,7 @@ export class ReportAPI {
     static async getAllReports(filter: SearchParamsReport): Promise<PaginationReturn<Report>> {
         try {
             const reports = await instance.get<PaginationReturn<Report>>(`${API_V1}/list`, {
-                params: filter
+                params: filter,
             })
             return reports.data;
         } catch(err) {
