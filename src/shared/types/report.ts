@@ -2,6 +2,7 @@ import { SearchParams } from "./enumerators";
 
 export interface Report {
     id: string;
+    fileName: string;
     status: StatusReport;
     resultProcess: ReportMetricResult;
 }

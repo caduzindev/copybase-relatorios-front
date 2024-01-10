@@ -1,5 +1,5 @@
 import { PaginationReturn } from "../types/enumerators";
-import { SearchParamsReport } from "../types/report";
+import { Report, SearchParamsReport } from "../types/report";
 import { instance } from "./instance";
 
 const API_V1 = '/report/v1'
