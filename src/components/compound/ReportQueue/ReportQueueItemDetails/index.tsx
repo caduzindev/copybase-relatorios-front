@@ -1,7 +1,13 @@
 import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react"
 import { SimpleBarChart } from "../../../unique/Chart/SimpleBar"
 
-export const ReportQueueItemDetails = () => {
+type Props = {
+    mrrData: number[],
+    churnRateData: number[],
+    months: string[]
+}
+
+export const ReportQueueItemDetails = ({ mrrData,churnRateData,months }: Props) => {
     return <Box 
         display="flex" 
         justifyContent="center"
@@ -17,8 +23,8 @@ export const ReportQueueItemDetails = () => {
             <TabPanels>
                 <TabPanel height={500}>
                     <SimpleBarChart 
-                        data={[45,67,21,34,98,45,67]} 
-                        labels={["1","2","3","4","5","6","7"]} 
+                        data={mrrData} 
+                        labels={months} 
                     />
                 </TabPanel>
             </TabPanels>

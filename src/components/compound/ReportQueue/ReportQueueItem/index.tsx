@@ -4,12 +4,7 @@ import { Button } from "../../../unique/Button"
 import { FaEye } from "react-icons/fa6"
 import { Modal } from "../../../unique/Modal"
 import { ReportQueueItemDetails } from "../ReportQueueItemDetails"
-import { StatusReport } from "../../../../shared/types/report"
-
-type Props = {
-    fileName: string;
-    status: StatusReport
-}
+import { MetricsReport, MetricsReportError, ReportMetricResult, StatusReport } from "../../../../shared/types/report"
 
 const statusReportToText = (status: StatusReport) => (
     <>
@@ -62,8 +57,48 @@ const statusReportToProgress = (status: StatusReport) => (
     </>
 )
 
-export const ReportQueueItem = ({ fileName, status }: Props)=>{
+const parseResultProcess = (
+    statusReport: StatusReport,
+    resultProcess: ReportMetricResult
+): { 
+    months: string[], 
+    mrrData: number[], 
+    churnRateData: number[], 
+    error: boolean, 
+    reason?: string
+} | null => {
+    if (statusReport === StatusReport.DONE) {
+        const parse =resultProcess as MetricsReport
+        return {
+            months: parse.mrr.months,
+            mrrData: parse.mrr.values,
+            churnRateData: parse.churnRate.values,
+            error: false
+        }
+    }
+
+    if (statusReport === StatusReport.ERROR) {
+        const parse =resultProcess as MetricsReportError
+        return {
+            error: true,
+            months: [],
+            mrrData: [],
+            churnRateData: [],
+            reason: parse.reason
+        }
+    }
+    return null
+}
+
+type Props = {
+    fileName: string;
+    status: StatusReport;
+    resultProcess: ReportMetricResult;
+}
+
+export const ReportQueueItem = ({ fileName, status, resultProcess }: Props)=>{
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const parseResult = parseResultProcess(status, resultProcess);
     return (
         <>
             <Card 
@@ -93,14 +128,20 @@ export const ReportQueueItem = ({ fileName, status }: Props)=>{
                     </CardBody>
                 </Stack>
             </Card>
-            <Modal
-                title={<Text>Detalhes do relatorio</Text>}
-                isOpen={isOpen}
-                size="full"
-                onClose={onClose}
-            >
-                <ReportQueueItemDetails />
-            </Modal>
+            {parseResult && !parseResult?.error && (
+                <Modal
+                    title={<Text>Detalhes do relatorio</Text>}
+                    isOpen={isOpen}
+                    size="full"
+                    onClose={onClose}
+                >
+                    <ReportQueueItemDetails 
+                        months={parseResult.months}
+                        churnRateData={parseResult.churnRateData}
+                        mrrData={parseResult.mrrData}
+                    />
+                </Modal>
+            )}
         </>
     )
 }

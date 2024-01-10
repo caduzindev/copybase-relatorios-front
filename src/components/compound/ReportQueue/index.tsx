@@ -21,6 +21,7 @@ export const ReportQueue = () => {
                 {data?.data.map((report) => <ReportQueueItem 
                         fileName={report.fileName}
                         status={report.status}
+                        resultProcess={report.resultProcess}
                         key={report.id}
                     /> 
                 )}
