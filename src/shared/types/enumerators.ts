@@ -1,5 +1,6 @@
 export interface SearchParams {
-    page: number;
+    page?: number;
+    orderBy?: 'desc' | 'asc';
 }
 
 export interface PaginationReturn<T> {
