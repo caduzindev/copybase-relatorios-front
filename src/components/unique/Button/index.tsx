@@ -28,6 +28,8 @@ export const Button = ({
 }: Props) => {
     const sizeButton = mapToSizeButton[size] || 'sm'
     return <ButtonChakra 
+        fontFamily="Sans serif"
+        fontWeight="600"
         colorScheme={color}
         width={width}
         height={height}

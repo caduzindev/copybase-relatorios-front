@@ -1,5 +1,6 @@
 import { Chart as ChartJS, registerables } from 'chart.js';
 import { Bar } from "react-chartjs-2"
+import { colors } from '../../../../themes/Chakra/chakra';
 
 ChartJS.register(...registerables);
 
@@ -17,6 +18,9 @@ export const SimpleBarChart = ({data,labels}: Props) => {
                 title: {
                     display: true,
                     text: 'MRR por mês'
+                },
+                legend: {
+                    position: 'top'
                 }
             }
         }}
@@ -25,9 +29,9 @@ export const SimpleBarChart = ({data,labels}: Props) => {
             datasets: [
                 {
                     data,
-                    borderColor: '#ff0000',
-                    backgroundColor: '#f8aabf',
-                    borderWidth: 2,
+                    borderColor: colors.general.whiteGrayClean,
+                    backgroundColor: colors.general.purple,
+                    borderWidth: 1,
                     borderSkipped: false,
                 }
             ]

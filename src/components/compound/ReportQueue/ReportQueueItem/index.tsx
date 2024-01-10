@@ -8,9 +8,9 @@ import { MetricsReport, MetricsReportError, ReportMetricResult, StatusReport } f
 
 const statusReportToText = (status: StatusReport) => (
     <>
-        {status === StatusReport.DONE && (<Text>Completo</Text>)}
-        {status === StatusReport.PROCESSING && (<Text>Em processamento</Text>)}
-        {status === StatusReport.ERROR && (<Text>Erro</Text>)}
+        {status === StatusReport.DONE && (<Text fontWeight="500" fontFamily="Inter Variable">Completo</Text>)}
+        {status === StatusReport.PROCESSING && (<Text fontWeight="500" fontFamily="Inter Variable">Em processamento</Text>)}
+        {status === StatusReport.ERROR && (<Text fontWeight="500" fontFamily="Inter Variable">Erro</Text>)}
     </>
 )
 

@@ -42,8 +42,19 @@ export const UploadFile = ({ onFileUpload, allowExtensions }: Props) => {
                 transition="all 0.3s ease-out"
             >
                 <Stack spacing={4} align="center">
-                    <Text fontSize='3xl' color="copybase.general.purple">Arraste e solte o arquivo aqui</Text>
-                    <Text fontSize='3xl' color="copybase.general.purple">-OU-</Text>
+                    <Text 
+                        fontSize='3xl' 
+                        color="copybase.general.purple"
+                        fontFamily="Sans serif"
+                        fontWeight="700"
+                        textAlign="center"
+                    >Arraste e solte o arquivo aqui</Text>
+                    <Text 
+                        fontSize='2xl' 
+                        color="copybase.general.purple"
+                        fontFamily="Sans serif"
+                        fontWeight="700"
+                    >-OU-</Text>
                     <Button 
                         color="copybase.button" 
                         size="xbig"

@@ -21,7 +21,14 @@ export const ReportQueue = () => {
 
     return (
         <Box>
-            <Text color="copybase.general.black" fontSize="4xl" fontWeight="600">Relatorios</Text>
+            <Text 
+                color="copybase.general.black" 
+                fontSize="2xl" 
+                fontWeight="600"
+                fontFamily="Sans serif"
+            >
+                RELATORIOS
+            </Text>
             <Stack>
                 {reports?.map((report) => <ReportQueueItem 
                         fileName={report.fileName}

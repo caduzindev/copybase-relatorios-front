@@ -22,6 +22,10 @@ export const colors = {
 }
 
 export const theme = extendTheme({
+    fonts: {
+        heading: `'Inter Variable', sans-serif`,
+        body: `'Inter Variable', sans-serif`,
+    },
     colors: {
         copybase: {...colors}
     }
