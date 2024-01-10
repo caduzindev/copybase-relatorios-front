@@ -3,12 +3,21 @@ import { UploadFile } from "../components/compound/UploadFile"
 import { ReportQueue } from "../components/compound/ReportQueue"
 import { useCallback } from "react"
 import { usePostReport } from "../hooks/report/mutations"
+import { useReportStore } from "../hooks/report/store"
+import { StatusReport } from "../shared/types/report"
 
 export const SendReport = () => {
     const { mutate } = usePostReport();
+    const { addReport } = useReportStore()
+
     const onUploadFile = useCallback((file: File) => {
+        addReport({
+            status: StatusReport.PROCESSING,
+            fileName: file.name
+        })
         mutate(file)
-    }, [mutate])
+    }, [mutate, addReport])
+
     return (
         <Box>
             <Grid templateColumns='repeat(2, 1fr)' p={4} gap={4}>

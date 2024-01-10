@@ -1,24 +1,29 @@
 import { Box, Stack, Text } from "@chakra-ui/react"
 import { ReportQueueItem } from "./ReportQueueItem"
 import { useGetReportsInterval } from "../../../hooks/report/queries"
+import { useEffect } from "react"
+import { useReportStore } from "../../../hooks/report/store"
 export const ReportQueue = () => {
-    const { data, isError, isPending, isSuccess, error } = useGetReportsInterval({
+    const { data, isPending, isSuccess } = useGetReportsInterval({
         page: 1,
     }, 3000)
 
-    if (isPending) return <h1>Loading...</h1>
-    if (isError) {
-        console.log(error)
-    }
-    if (isSuccess) {
-        console.log('OPaaa')
+    const { reports,listReport } = useReportStore()
+
+    useEffect(()=>{
         console.log(data)
-    }
+        if (isSuccess) {
+            listReport(data.data);
+        }
+    },[data, listReport, isSuccess])
+
+    if (isPending) return <h1>Loading...</h1>
+
     return (
         <Box>
             <Text color="copybase.general.black" fontSize="4xl" fontWeight="600">Relatorios</Text>
             <Stack>
-                {data?.data.map((report) => <ReportQueueItem 
+                {reports?.map((report) => <ReportQueueItem 
                         fileName={report.fileName}
                         status={report.status}
                         resultProcess={report.resultProcess}
