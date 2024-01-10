@@ -18,9 +18,12 @@ export const ReportQueue = () => {
         <Box>
             <Text color="copybase.general.black" fontSize="4xl" fontWeight="600">Relatorios</Text>
             <Stack>
-                <ReportQueueItem />  
-                <ReportQueueItem />  
-                <ReportQueueItem />  
+                {data?.data.map((report) => <ReportQueueItem 
+                        fileName={report.fileName}
+                        status={report.status}
+                        key={report.id}
+                    /> 
+                )}
             </Stack>
         </Box>
     )
