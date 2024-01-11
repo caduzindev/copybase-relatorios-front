@@ -6,13 +6,20 @@ import { Modal } from "../../../unique/Modal"
 import { ReportQueueItemDetails } from "../ReportQueueItemDetails"
 import { MetricsReport, MetricsReportError, ReportMetricResult, StatusReport } from "../../../../shared/types/report"
 
-const statusReportToText = (status: StatusReport) => (
-    <>
-        {status === StatusReport.DONE && (<Text fontWeight="500" fontFamily="Inter Variable">Completo</Text>)}
-        {status === StatusReport.PROCESSING && (<Text fontWeight="500" fontFamily="Inter Variable">Em processamento</Text>)}
-        {status === StatusReport.ERROR && (<Text fontWeight="500" fontFamily="Inter Variable">Erro</Text>)}
-    </>
-)
+const statusReportToText = (status: StatusReport) => {
+    const commomStyles = {
+        fontWeight:"700",
+        fontFamily: "Inter Variable",
+        color: 'copybase.general.purple'
+    }
+    return (
+        <>
+            {status === StatusReport.DONE && (<Text {...commomStyles}>Completo</Text>)}
+            {status === StatusReport.PROCESSING && (<Text {...commomStyles}>Em processamento</Text>)}
+            {status === StatusReport.ERROR && (<Text {...commomStyles}>Erro</Text>)}
+        </>
+    )
+}
 
 const statusReportToButton = (status: StatusReport, callback: ()=> void) => (
     <>
@@ -117,7 +124,7 @@ export const ReportQueueItem = ({ fileName, status, resultProcess }: Props)=>{
                 />
                 <Stack w="100%">
                     <CardBody p={0} w="100%">
-                        <Box display="flex" justifyContent="space-between">
+                        <Box display="flex" justifyContent="space-between" flexWrap="wrap">
                             <Text>{fileName}</Text>
                             <Box display="flex" gap={2} mb={1}>
                                 {statusReportToText(status)}

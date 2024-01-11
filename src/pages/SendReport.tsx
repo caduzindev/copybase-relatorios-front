@@ -20,7 +20,11 @@ export const SendReport = () => {
 
     return (
         <Box>
-            <Grid templateColumns='repeat(2, 1fr)' p={4} gap={4}>
+            <Grid 
+                templateColumns={['1fr', '1rf','repeat(2, 1fr)']} 
+                p={[1,1,4]} 
+                gap={4}
+            >
                 <GridItem>
                     <UploadFile allowExtensions={['text/csv']} onFileUpload={onUploadFile}/>
                 </GridItem>

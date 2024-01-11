@@ -28,36 +28,36 @@ export const UploadFile = ({ onFileUpload, allowExtensions }: Props) => {
     });
 
     return (
-        <Box {...getRootProps()}>
+        <Box {...getRootProps()} width="100%">
             <input {...getInputProps()} />
             <Box
-                width='100%'
+                width="100%"
                 border='3px'
                 borderStyle="dashed"
                 borderRadius={20}
                 borderColor={isDragActive ? "copybase.general.purple" : "copybase.general.whiteGray"}
-                p={20}
+                p={[15,15,20]}
                 opacity={isDragActive ? 0.5 : 1}
                 bg="copybase.general.whiteGrayClean"
                 transition="all 0.3s ease-out"
             >
                 <Stack spacing={4} align="center">
                     <Text 
-                        fontSize='3xl' 
+                        fontSize={['2xl','2xl','3xl']} 
                         color="copybase.general.purple"
                         fontFamily="Sans serif"
                         fontWeight="700"
                         textAlign="center"
                     >Arraste e solte o arquivo aqui</Text>
                     <Text 
-                        fontSize='2xl' 
+                        fontSize={['2xl','2xl','3xl']}
                         color="copybase.general.purple"
                         fontFamily="Sans serif"
                         fontWeight="700"
                     >-OU-</Text>
                     <Button 
                         color="copybase.button" 
-                        size="xbig"
+                        size="big"
                         padding="2rem"
                         callback={()=>open()}
                     >

@@ -26,6 +26,7 @@ export const ReportQueue = () => {
                 fontSize="2xl" 
                 fontWeight="600"
                 fontFamily="Sans serif"
+                textAlign={['center','center','start']}
             >
                 RELATORIOS
             </Text>
