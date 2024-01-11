@@ -14,6 +14,7 @@ export const ReportQueueItemDetails = ({ mrrData,churnRateData,months }: Props) 
         justifyContent="center"
         p="4" 
         width="100%"
+        backgroundColor="copybase.general.whiteGrayClean"
         maxHeight={500}
     >
         <Tabs variant='soft-rounded' width="100%">

@@ -31,9 +31,11 @@ export const Modal = ({ onClose,isOpen,size, title, children }: Props) => {
         <ModalChakra onClose={onClose} size={sizeModal} isOpen={isOpen}>
             <ModalOverlay />
             <ModalContent>
-                <ModalHeader>{title}</ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
+                <ModalHeader 
+                    backgroundColor="copybase.general.purple"
+                >{title}</ModalHeader>
+                <ModalCloseButton color="copybase.general.white"/>
+                <ModalBody backgroundColor="copybase.general.whiteGrayClean">
                     {children}
                 </ModalBody>
             </ModalContent>

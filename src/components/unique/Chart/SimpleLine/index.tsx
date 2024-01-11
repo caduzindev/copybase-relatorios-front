@@ -39,7 +39,7 @@ export const SimpleLineChart = ({data, labels, title}: Props) => {
                     pointStyle: 'circle',
                     pointRadius: 8,
                     pointHoverRadius: 13,
-                    borderWidth: 1,
+                    borderWidth: 2,
                     fill: true
                 }
             ]

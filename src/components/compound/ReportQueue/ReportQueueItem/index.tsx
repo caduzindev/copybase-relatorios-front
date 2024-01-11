@@ -130,7 +130,11 @@ export const ReportQueueItem = ({ fileName, status, resultProcess }: Props)=>{
             </Card>
             {parseResult && !parseResult?.error && (
                 <Modal
-                    title={<Text>Detalhes do relatorio</Text>}
+                    title={<Text 
+                        color="copybase.general.white" 
+                        fontFamily="Sans serif"
+                        fontWeight="700"
+                    >Detalhes do relatorio</Text>}
                     isOpen={isOpen}
                     size="full"
                     onClose={onClose}
