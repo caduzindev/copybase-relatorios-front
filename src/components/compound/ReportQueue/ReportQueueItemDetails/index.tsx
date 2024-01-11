@@ -16,22 +16,24 @@ export const ReportQueueItemDetails = ({ mrrData,churnRateData,months }: Props) 
         width="100%"
         maxHeight={500}
     >
-        <Tabs variant='soft-rounded' colorScheme='green' width="100%">
+        <Tabs variant='soft-rounded' width="100%">
             <TabList display="flex" justifyContent="center">
-                <Tab>MRR</Tab>
-                <Tab>Churn Rate</Tab>
+                <Tab _selected={{bg: "copybase.general.purple", color:'copybase.general.white'}}>MRR</Tab>
+                <Tab _selected={{bg: "copybase.general.purple", color:'copybase.general.white'}}>Churn Rate</Tab>
             </TabList>
             <TabPanels>
                 <TabPanel height={500}>
                     <SimpleBarChart 
                         data={mrrData} 
-                        labels={months} 
+                        labels={months}
+                        title="MRR por mês" 
                     />
                 </TabPanel>
                 <TabPanel height={500}>
                     <SimpleLineChart 
                         data={churnRateData} 
                         labels={months} 
+                        title="Churn rate por mês"
                     />
                 </TabPanel>
             </TabPanels>

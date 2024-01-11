@@ -6,10 +6,11 @@ ChartJS.register(...registerables);
 
 type Props = {
     data: number[],
-    labels: string[]
+    labels: string[],
+    title: string;
 }
 
-export const SimpleBarChart = ({data,labels}: Props) => {
+export const SimpleBarChart = ({data, labels, title}: Props) => {
     return <Bar 
         options={{
             responsive: true,
@@ -17,10 +18,19 @@ export const SimpleBarChart = ({data,labels}: Props) => {
             plugins: {
                 title: {
                     display: true,
-                    text: 'MRR por mês'
+                    text: title
                 },
                 legend: {
                     position: 'top'
+                }
+            },
+            scales: {
+                y: {
+                    ticks: {
+                        callback: (value) => {
+                            return 'R$ '+value 
+                        }
+                    }
                 }
             }
         }}
@@ -28,6 +38,7 @@ export const SimpleBarChart = ({data,labels}: Props) => {
             labels,
             datasets: [
                 {
+                    label: 'Metricas',
                     data,
                     borderColor: colors.general.whiteGrayClean,
                     backgroundColor: colors.general.purple,

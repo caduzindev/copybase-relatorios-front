@@ -3,6 +3,7 @@ import { extendTheme } from "@chakra-ui/react"
 export const colors = {
     general: {
         purple: '#44377f',
+        purpleClean: '#786ab8',
         white: '#ffffff',
         whiteGray: '#eaeafe',
         whiteGrayClean: '#f7f7ff',
