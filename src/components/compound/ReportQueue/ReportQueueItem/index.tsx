@@ -153,6 +153,23 @@ export const ReportQueueItem = ({ fileName, status, resultProcess }: Props)=>{
                     />
                 </Modal>
             )}
+            {parseResult && parseResult.error && (
+                <Modal
+                    title={<Text
+                        color="copybase.general.white" 
+                        fontFamily="Sans serif"
+                        fontWeight="700"
+                    >Detalhes do motivo</Text>}
+                    isOpen={isOpen}
+                    size="small"
+                    onClose={onClose}
+                >
+                    <Text
+                        fontFamily="Sans serif"
+                        fontWeight="500"
+                    >{parseResult.reason}</Text>
+                </Modal>
+            )}
         </>
     )
 }
