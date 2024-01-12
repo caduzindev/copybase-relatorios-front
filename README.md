@@ -16,14 +16,14 @@ Front-end de uma aplicação que gera relatorios de MRR e Churn Rate apartir de 
 - NodeJs(preferivel versoes mais atuais)
 - Npm
 
-**Antes de rodar o projeto, não se esqueça de subir o back-end antes ->**
+**Antes de rodar o projeto, não se esqueça de subir o back-end ->**
 
 ## Como Rodar o Projeto
 
 ```bash
 # Clone o repositório
-git clone https://link-para-seu-projeto
-cd nome-do-projeto
+git clone https://github.com/caduzindev/copybase-relatorios-front.git
+cd copybase-relatorios-front
 
 # Instale as dependências
 npm install
