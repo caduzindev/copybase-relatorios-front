@@ -7,7 +7,8 @@ export const colors = {
         white: '#ffffff',
         whiteGray: '#eaeafe',
         whiteGrayClean: '#f7f7ff',
-        black: '#0f0b25'
+        black: '#0f0b25',
+        green: '#338c5c',
     },
     button: {
         500: '#338c5c',

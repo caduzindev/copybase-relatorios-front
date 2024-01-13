@@ -2,6 +2,8 @@ import { Box, Stack, Text, useToast } from "@chakra-ui/react"
 import { Button } from "../../unique/Button"
 import { useCallback } from "react"
 import { useDropzone } from "react-dropzone"
+import { Toast } from "../../unique/Toast"
+import { showMessageChrakra } from "../../../shared/helpers/showMessageChakra"
 
 type Props = {
     onFileUpload: (file: File) => void,
@@ -11,26 +13,12 @@ type Props = {
 export const UploadFile = ({ onFileUpload, allowExtensions }: Props) => {
     const toast = useToast()
 
-    const showError = useCallback((text: string) => {
-        toast({
-            duration: 4000,
-            isClosable: true,
-            render: () => (
-                <Box 
-                    color='copybase.general.white' 
-                    p={4} bg='copybase.general.purple'
-                    borderRadius={10}
-                    display="flex"
-                    justifyContent="center"
-                >
-                  <Text
-                    fontFamily="Sans serif"
-                    fontWeight="700"
-                    textAlign="center"
-                  >Erro: {text}</Text>
-                </Box>
-              ),
-          })
+    const showMessage = useCallback((text: string, type: 'error' | 'success') => {
+        showMessageChrakra(toast, <Toast 
+            message={text} 
+            backgroundColor={type === 'error' ? "copybase.general.purple" : "copybase.general.green"}
+            textColor="copybase.general.white"
+        />)
     }, [toast])
 
     const onDrop = useCallback((acceptedFiles: File[]) => {
@@ -38,12 +26,12 @@ export const UploadFile = ({ onFileUpload, allowExtensions }: Props) => {
         
         const isAllowExtension = allowExtensions.includes(acceptedFiles[0].type)
         if (!isAllowExtension) {
-            showError(`Arquivos permitidos "${allowExtensions.join(',')}"`)
+            showMessage(`Erro: Arquivos permitidos "${allowExtensions.join(',')}"`, 'error')
             return;
         }
         
         onFileUpload(acceptedFiles[0])
-    }, [onFileUpload, allowExtensions, showError])
+    }, [onFileUpload, allowExtensions, showMessage])
 
     const { getRootProps, getInputProps, open, isDragActive } = useDropzone({ 
         onDrop,
