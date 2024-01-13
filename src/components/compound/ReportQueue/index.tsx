@@ -11,7 +11,6 @@ export const ReportQueue = () => {
     const { reports,listReport } = useReportStore()
 
     useEffect(()=>{
-        console.log(data)
         if (isSuccess) {
             listReport(data.data);
         }
