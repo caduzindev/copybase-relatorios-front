@@ -1,4 +1,4 @@
-import { Box, Stack, Text } from "@chakra-ui/react"
+import { Box, Stack, Text, useToast } from "@chakra-ui/react"
 import { Button } from "../../unique/Button"
 import { useCallback } from "react"
 import { useDropzone } from "react-dropzone"
@@ -9,17 +9,41 @@ type Props = {
 }
 
 export const UploadFile = ({ onFileUpload, allowExtensions }: Props) => {
+    const toast = useToast()
+
+    const showError = (text: string) => {
+        toast({
+            duration: 4000,
+            isClosable: true,
+            render: () => (
+                <Box 
+                    color='copybase.general.white' 
+                    p={4} bg='copybase.general.purple'
+                    borderRadius={10}
+                    display="flex"
+                    justifyContent="center"
+                >
+                  <Text
+                    fontFamily="Sans serif"
+                    fontWeight="700"
+                    textAlign="center"
+                  >Erro: {text}</Text>
+                </Box>
+              ),
+          })
+    }
+
     const onDrop = useCallback((acceptedFiles: File[]) => {
         if (acceptedFiles.length < 1) return;
         
         const isAllowExtension = allowExtensions.includes(acceptedFiles[0].type)
         if (!isAllowExtension) {
-            alert(`Arquivos permitidos "${allowExtensions.join(',')}"`)
+            showError(`Arquivos permitidos "${allowExtensions.join(',')}"`)
             return;
         }
         
         onFileUpload(acceptedFiles[0])
-    }, [onFileUpload, allowExtensions])
+    }, [onFileUpload, allowExtensions,toast])
 
     const { getRootProps, getInputProps, open, isDragActive } = useDropzone({ 
         onDrop,
