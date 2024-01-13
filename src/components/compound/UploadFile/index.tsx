@@ -11,7 +11,7 @@ type Props = {
 export const UploadFile = ({ onFileUpload, allowExtensions }: Props) => {
     const toast = useToast()
 
-    const showError = (text: string) => {
+    const showError = useCallback((text: string) => {
         toast({
             duration: 4000,
             isClosable: true,
@@ -31,7 +31,7 @@ export const UploadFile = ({ onFileUpload, allowExtensions }: Props) => {
                 </Box>
               ),
           })
-    }
+    }, [toast])
 
     const onDrop = useCallback((acceptedFiles: File[]) => {
         if (acceptedFiles.length < 1) return;
@@ -43,7 +43,7 @@ export const UploadFile = ({ onFileUpload, allowExtensions }: Props) => {
         }
         
         onFileUpload(acceptedFiles[0])
-    }, [onFileUpload, allowExtensions,toast])
+    }, [onFileUpload, allowExtensions, showError])
 
     const { getRootProps, getInputProps, open, isDragActive } = useDropzone({ 
         onDrop,
