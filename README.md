@@ -1,5 +1,5 @@
-# Copybase Relatorios Front
-### **PS: Antes de rodar o front, não se esqueça de subir o back-end -> [Acesse aqui](https://github.com/caduzindev/copybase-relatorios-back)**
+# Relatorios Front Sass
+### **PS: Antes de rodar o front, não se esqueça de subir o back-end -> [Acesse aqui](https://github.com/caduzindev/relatorios-back-sass)**
 
 ## Descrição
 
@@ -22,11 +22,14 @@ Front-end de uma aplicação que gera relatorios de MRR e Churn Rate a partir de
 
 ```bash
 # Clone o repositório
-git clone https://github.com/caduzindev/copybase-relatorios-front.git
-cd copybase-relatorios-front
+git clone https://github.com/caduzindev/relatorios-front-sass.git
+cd relatorios-front-sass
 
 # Instale as dependências
 npm install
 
 #Rode o projeto
 npm run start
+
+# Arquivo de exemplo
+na raiz do proketo temos **metricas-teste.csv** para você testar
