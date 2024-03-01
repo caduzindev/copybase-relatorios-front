@@ -7,7 +7,8 @@ type Props = {
     children: React.ReactNode,
     width?: string,
     height?: string,
-    padding?: string
+    padding?: string,
+    enable?: boolean
 }
 
 const mapToSizeButton = {
@@ -24,7 +25,8 @@ export const Button = ({
     children,
     width,
     height, 
-    padding 
+    padding,
+    enable
 }: Props) => {
     const sizeButton = mapToSizeButton[size] || 'sm'
     return <ButtonChakra 
@@ -36,5 +38,6 @@ export const Button = ({
         size={sizeButton}
         onClick={callback}
         padding={padding}
+        isDisabled={enable !== undefined ? !enable : false}
     >{children}</ButtonChakra>
 }
